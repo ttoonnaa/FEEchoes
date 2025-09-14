@@ -1,0 +1,15 @@
+
+
+ネガティブ
+
+(bad quality,worst quality,low quality,bad anatomy,bad hand:1.3), nsfw, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, artist name,
+
+
+設定
+
+Sampling Method: Eular a
+Sampling steps: 30
+Width: 512
+Height: 768
+CFG Scale: 7
+
