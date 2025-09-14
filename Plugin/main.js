@@ -11,7 +11,7 @@ ScriptCall_Setup = function() {
 	root.log('Gf_Setup');
 
 	// マスターデータを初期化
-	//Master.initialize();
+	Master.initialize();
 
 	// カスタムアイテムを初期化
 	//tona_CustomItemControl.initialize();
@@ -26,7 +26,7 @@ function Gf_InitStage() {
 	root.log('Gf_InitStage');
 
 	// ステージをセットアップする
-	//game_SceneControl.setupStage();
+	game_SceneControl.setupStage();
 }
 
 // *****************************************************************************************************************************
