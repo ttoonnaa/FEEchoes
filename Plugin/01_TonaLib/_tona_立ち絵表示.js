@@ -76,6 +76,8 @@ tona_unitRightAttackPicture_hoseiY = 50;
 
 	};
 
+	var _UnitMenuScreen_drawScreenBottomText = UnitMenuScreen.drawScreenBottomText;
+
 	UnitMenuScreen.drawScreenBottomText = function(textui) {
 		var text;
 		var index = this._activePageIndex;
@@ -89,17 +91,7 @@ tona_unitRightAttackPicture_hoseiY = 50;
 		// 以下、元の処理
 		//
 
-		if (this._topWindow.isTracingHelp()) {
-			text = this._topWindow.getHelpText();
-		}
-		else if (this._bottomWindowArray[index].isHelpMode() || this._bottomWindowArray[index].isTracingHelp()) { // isInteraction
-			text = this._bottomWindowArray[index].getHelpText();
-		}
-		else {
-			text = this._unit.getDescription();
-		}
-
-		TextRenderer.drawScreenBottomText(text, textui);
+		_UnitMenuScreen_drawScreenBottomText.call(this, textui);
 	};
 
 	// *****************************************************************************************************************************
@@ -147,6 +139,8 @@ tona_unitRightAttackPicture_hoseiY = 50;
 
 	PosAttackWindow._tona_frame = 0;
 
+	var _PosAttackWindow_drawWindow = PosAttackWindow.drawWindow;
+
 	PosAttackWindow.drawWindow = function(x, y) {
 
 		// PosAttackWindow は moveWindows が毎フレーム呼ばれない（なんでや！）
@@ -174,23 +168,7 @@ tona_unitRightAttackPicture_hoseiY = 50;
 		// 以下、元の処理
 		//
 
-		var width = this.getWindowWidth();
-		var height = this.getWindowHeight();
-		var textui = this.getWindowTextUI();
-		var pic = textui.getUIImage();
-
-		if (!this._isWindowEnabled) {
-			return;
-		}
-
-		// ウィンドウの描画
-		if (pic !== null) {
-			WindowRenderer.drawStretchWindow(x, y, width, height, pic);
-		}
-
-		this.drawWindowContent(x + this.getWindowXPadding(), y + this.getWindowYPadding());
-
-		this.drawWindowTitle(x, y, width, height, pic);
+		_PosAttackWindow_drawWindow.call(this, x, y);
 	};
 
 })();
