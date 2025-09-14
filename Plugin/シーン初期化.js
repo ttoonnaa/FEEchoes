@@ -76,7 +76,7 @@ game_SceneControl = { __dummy: null
 		unit.setLv(masterPlayer.level);
 
 	    // 初期パラメーターを設定
-	    for (var pi = 0; pi < 8; pi++) {
+	    for (var pi = 0; pi < 9; pi++) {
 			unit.setParamValue(pi, masterPlayer.params[pi]);
 	    }
 
@@ -84,12 +84,15 @@ game_SceneControl = { __dummy: null
 		if (unit.getLv() < srcLevel) {
 
 			// 固定成長
-		    for (var pi = 0; pi < 8; pi++) {
+		    for (var pi = 0; pi < 9; pi++) {
 				var value = unit.getParamValue(pi);
 				value += Math.floor((masterPlayer.growths[pi] + masterKlass.growths[pi]) * (srcLevel - unit.getLv()) / 100 + 0.5);
 				unit.setParamValue(pi, value);
 			}
 		}
+
+		// HPを設定
+		unit.setHp(ParamBonus.getMhp(unit));
 
 		// セットアップ済みにする
 		unit.custom.tona_isSetupDone = 1;
@@ -104,6 +107,20 @@ game_SceneControl = { __dummy: null
 		if (unit.custom.tona_isSetupDone > 0) { return; }
 
 		root.log('セットアップ: ' + unit.getName());
+
+		// クラス情報を取得
+		var klassId = unit.getClass().getId();
+		var masterKlass = Master.klassById[klassId];
+
+	    // パラメーターを設定
+	    for (var pi = 0; pi < 9; pi++) {
+			var value = masterKlass.params[pi];
+			value += Math.floor(masterKlass.enemyGrowths[pi] * (unit.getLv() - 1) / 100 + 0.5);
+			unit.setParamValue(pi, value);
+		}
+
+		// HPを設定
+		unit.setHp(ParamBonus.getMhp(unit));
 
 		// セットアップ済みにする
 		unit.custom.tona_isSetupDone = 1;

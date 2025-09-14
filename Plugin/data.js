@@ -23,7 +23,11 @@ var Master = { __dummy: null
 	, klasses: [
 		{
 			klassId: 132, name: '神官'					// 神官(セリカ)
-			, params: [24, 5, 0, 1, 1, 0, 1, 0, 0], growths: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+			, params: [24, 5, 0, 1, 1, 0, 1, 0, 4], growths: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+		}
+		, {
+			klassId: 6, name: '盗賊'					// 盗賊
+			, params: [26, 7, 0, 1, 2, 0, 2, 0, 4], growths: [0, 0, 0, 0, 0, 0, 0, 0, 0], enemyGrowths: [120, 45, 0, 40, 45, 0, 40, 10, 0]
 		}
 	]
 
