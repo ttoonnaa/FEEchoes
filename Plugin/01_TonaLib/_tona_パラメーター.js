@@ -62,15 +62,17 @@ BaseUnitParameter.getClassParameterBonus = function(klass) {
 	var klassId = klass.getId();
 	var value = 0;
 
+	// エコーズではクラスパラメーター無し
+
 	// 独自のクラスボーナスを加算する
-	if (Master !== undefined) {
-		if (klassId in Master.klassById) {
-			var masterKlass = Master.klassById[klassId];
-			if (paramType < masterKlass.params.length) {
-				value += masterKlass.params[paramType];
-			}
-		}
-	}
+	//if (Master !== undefined) {
+	//	if (klassId in Master.klassById) {
+	//		var masterKlass = Master.klassById[klassId];
+	//		if (paramType < masterKlass.params.length) {
+	//			value += masterKlass.params[paramType];
+	//		}
+	//	}
+	//}
 
 	return value;
 };

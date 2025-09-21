@@ -62,6 +62,56 @@ var tona_UnitControl = { __dummy: null
 	}
 
 	// *****************************************************************************************************************************
+	// ベース武器を取得する
+	// -----------------------------------------------------------------------------------------------------------------------------
+
+	, getBaseWeapon: function(unit) {
+
+		this.setupBaseWeapons(unit);
+
+		var klass = unit.getClass();
+
+		if (klass.custom.tona_baseWeapons.length == 0) {
+			return null;
+		}
+
+		return klass.custom.tona_baseWeapons[0];
+	}
+
+	// *****************************************************************************************************************************
+	// ベース武器を全て取得する
+	// -----------------------------------------------------------------------------------------------------------------------------
+
+	, getBaseWeapons: function(unit) {
+
+		this.setupBaseWeapon(unit);
+
+		return klass.custom.tona_baseWeapons;
+	}
+
+	// *****************************************************************************************************************************
+	// ベース武器をセットアップする
+	// -----------------------------------------------------------------------------------------------------------------------------
+
+	, setupBaseWeapons: function(unit) {
+
+		var klass = unit.getClass();
+
+		if (klass.custom.tona_baseWeapons == null) {
+			klass.custom.tona_baseWeapons = [];
+
+			// ID が設定されていれば baseWeapon を作る
+			if (klass.custom.tona_baseWeaponIds != null) {
+				for (var i = 0; i < klass.custom.tona_baseWeaponIds.length; i++) {
+					var weaponId = klass.custom.tona_baseWeaponIds[i];
+					var weapon = root.duplicateItem(root.getBaseData().getWeaponList().getDataFromId(weaponId));
+					klass.custom.tona_baseWeapons[i] = weapon;
+				}
+			}
+		}
+	}
+
+	// *****************************************************************************************************************************
 	// 立ち絵を取得する
 	//		0:  標準
 	//		1:  バトル

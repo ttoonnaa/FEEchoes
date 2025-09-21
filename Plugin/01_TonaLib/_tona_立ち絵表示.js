@@ -94,6 +94,15 @@ tona_unitRightAttackPicture_hoseiY = 50;
 		_UnitMenuScreen_drawScreenBottomText.call(this, textui);
 	};
 
+
+	var _UnitMenuScreen_setNewTarget = UnitMenuScreen._setNewTarget;
+
+	UnitMenuScreen._setNewTarget = function(unit) {
+		this._tona_frame = 0;
+
+		_UnitMenuScreen_setNewTarget.call(this, unit);
+	};
+
 	// *****************************************************************************************************************************
 	// PosMenu
 	// -----------------------------------------------------------------------------------------------------------------------------
@@ -169,6 +178,15 @@ tona_unitRightAttackPicture_hoseiY = 50;
 		//
 
 		_PosAttackWindow_drawWindow.call(this, x, y);
+	};
+
+	// *****************************************************************************************************************************
+	// BaseMessageView：イベントメッセージでの立ち絵表示位置を変更する
+	// -----------------------------------------------------------------------------------------------------------------------------
+
+	BaseMessageView.getIllustY = function(image) {
+
+		return 50;
 	};
 
 })();

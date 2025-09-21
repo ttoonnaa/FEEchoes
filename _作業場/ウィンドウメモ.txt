@@ -1,0 +1,79 @@
+
+■アイテム所持数を１にしたらステータスがはみ出た。
+
+	UnitMenuBottomWindow : BaseMenuBottomWindow
+
+		_itemInteraction
+		_statusScrollbar
+
+
+	BaseMenuBottomWindow.getWindowHeight
+		= DefineControl.getUnitMenuBottomWindowHeight()
+		= (DefineControl.getVisibleUnitItemCount() * ItemRenderer.getItemHeight()) + 74;
+
+		ここでアイテム数で高さが決まってる
+
+		UnitMenuBottomWindow.getWindowHeight を上書きして
+		ステータスの高さとの大きい方を取るべき
+
+
+	_statusScrollbar = createScrollbarObject(UnitStatusScrollbar, this)
+
+	UnitStatusScrollbar : StatusScrollbar : BaseScrollbar
+
+	StatusScrollbar.getObjectHeight
+		= 30;
+
+	BaseScrollbar.getScrollbarHeight
+		= (this._showRowCount * this._objectHeight) + ((this._showRowCount - 1) * this.getSpaceY());
+
+		_statusScrollbar.getScrollbarHeight で取得できそう
+
+
+	結論：
+
+		UnitMenuBottomWindow.getWindowHeight で
+
+		DefineControl.getUnitMenuBottomWindowHeight() これと
+		_statusScrollbar.getScrollbarHeight() の大きい方を取る
+
+
+■メッセージウィンドウを下固定にしたい。
+
+	現状整理：
+
+	単一の FaceView が全てを管理。
+
+	FaceView: 
+		_topView: FaceViewTop: BaseMessageView
+		_centerView: FaceViewCenter: BaseMessageView
+		_bottomView: FaceViewBottom: BaseMessageView
+
+	BaseMessageView: 
+		message, face, illust を管理
+
+	新しい案：
+
+	FaceView を完全に作り直す
+
+	FaceView は1つの BaseMessageView と、3つの illust を持つ
+	pos に関わらず BaseMessageView に処理を通す
+	BaseMessageView の illust は設定に関係なく無効にする
+	pos によって illust を分ける
+
+
+	root.isMessageWindowFixed ... ？？？？？？？？？？？	あれ？これで解決？？？？
+		→ 「メッセージレイアウト」の「詳細情報」の中にありそう…気づかないよ！
+
+	https://ci-en.net/creator/4919/article/441743
+
+	こんなのもあった
+
+
+
+
+
+
+
+
+

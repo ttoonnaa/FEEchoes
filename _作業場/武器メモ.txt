@@ -1,0 +1,35 @@
+
+■セーバー
+
+referenceWeapon: [つるぎ]
+counterWeapon: [つるぎ]
+item: [鉄の剣]
+
+攻撃：鉄の剣 → つるぎ
+参照：鉄の剣 → つるぎ
+反撃：鉄の剣 → つるぎ
+
+■セリカ
+
+referenceWeapon: [つるぎ, ファイアー]
+counterWeapon: [つるぎ, ファイアー]
+item: [鉄の剣]
+
+参照：鉄の剣 → つるぎ
+反撃：鉄の剣 → つるぎ → ファイアー
+
+■メイ
+
+referenceWeapon: [ファイアー]
+counterWeapon: [ファイアー]
+item: [鉄の剣]
+
+参照：鉄の剣 → ファイアー
+反撃：鉄の剣 → ファイアー
+
+
+
+
+
+
+
