@@ -108,7 +108,7 @@ HitCalculator.calculateHit = function(active, passive, weapon, activeTotalStatus
 
 		// 「魔法回避」および「魔法回避抑制」を使うように改造
 
-		var hit = this.calculateSingleHit.getHit(active, weapon);
+		var hit = this.calculateSingleHit(active, passive, weapon, activeTotalStatus);
 		var avoid = this.calculateMagicAvoid(active, passive, weapon, passiveTotalStatus);
 		var reduction = AbilityCalculator.getMagicAvoidReduction(active);
 		var percent = hit - Math.max(avoid - reduction, 0);

@@ -36,34 +36,42 @@ var Master = { __dummy: null
 		{
 			klassId: 132, name: '神官'					// 神官(セリカ)
 			, params: [24, 5, 0, 1, 1, 0, 1, 0, 4], growths: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+			, baseWeaponIds: [0, 4]
 		}
 		, {
 			klassId: 999, name: '傭兵'					// 傭兵
 			, params: [24, 8, 0, 8, 10, 0, 4, 1, 4], growths: [0, -5, 0, 5, 5, 0, -5, 0, 0]
+			, baseWeaponIds: [0]
 		}
 		, {
 			klassId: 999, name: 'アーチャー'			// アーチャー
 			, params: [24, 9, 0, 1, 2, 0, 3, 0, 4], growths: [-5, 0, 0, 10, -5, 0, -5, 0, 0]
+			, baseWeaponIds: [3]
 		}
 		, {
 			klassId: 89, name: '魔道士'					// 魔道士(男)
 			, params: [28, 8, 0, 3, 4, 0, 5, 8, 4], growths: [0, 5, 0, 5, 0, 0, -10, 0, 0]
+			, baseWeaponIds: [4]
 		}
 		, {
 			klassId: 133, name: '魔道士'				// 魔道士(女)
 			, params: [20, 9, 0, 1, 7, 5, 2, 10, 4], growths: [-10, 5, 0, -5, 5, 0, -5, 1, 0]
+			, baseWeaponIds: [4]
 		}
 		, {
-			klassId: 999, name: 'シスター'				// シスター
+			klassId: 91, name: 'シスター'				// シスター
 			, params: [18, 7, 0, 2, 4, 4, 1, 10, 4], growths: [-10, 0, 0, 0, 0, 5, -10, 2, 0]
+			, baseWeaponIds: [9]
 		}
 		, {
 			klassId: 6, name: '盗賊'					// 盗賊
 			, params: [26, 7, 0, 1, 2, 0, 2, 0, 4], growths: [0, 0, 0, 0, 0, 0, 0, 0, 0], enemyGrowths: [120, 45, 0, 40, 45, 0, 40, 10, 0]
+			, baseWeaponIds: [2]
 		}
 		, {
 			klassId: 39, name: 'ゾンビ'					// ゾンビ
 			, params: [36, 5, 0, 1, 1, 0, 1, 0, 4], growths: [0, 0, 0, 0, 0, 0, 0, 0, 0], enemyGrowths: [120, 50, 0, 40, 30, 0, 20, 0, 0]
+			, baseWeaponIds: [2]
 		}
 	]
 
